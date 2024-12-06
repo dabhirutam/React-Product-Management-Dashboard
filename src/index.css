@@ -1,0 +1,45 @@
+body {
+  background: linear-gradient(0deg, #000000e1, #00000094), url(images/bg-img.jpg) center no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.table{
+  /* --bs-table-bg: transparent !important; */
+  --bs-table-bg: #00000061 !important;
+  --bs-table-hover-bg: #0000003a !important;
+  --bs-table-color: #fff !important;
+  --bs-table-hover-color: #fff !important;
+  --bs-table-border-color: #8181815e !important;
+  line-height: 2rem;
+  cursor: pointer;
+}
+
+.table-dark{
+  --bs-table-bg: #000000c4 !important;
+}
+
+.table-dark tr, th, td{
+  border: none !important;
+}
+
+.form-control, .form-control:focus{
+  background-color: #00000042 !important;
+  color: #ffffffa8 !important;
+  box-shadow: none !important;
+  border: 2px solid #6c6c6cd8 !important;
+
+  &::placeholder{
+    color: #ffffffa8 !important;
+  }
+}
+
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  background-color: #00000061;
+}
+::-webkit-scrollbar-thumb {
+  background: #7a7a7a77;
+}
