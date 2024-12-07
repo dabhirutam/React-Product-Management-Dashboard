@@ -3,12 +3,12 @@ import { getDataLS } from "../helper/GetDataLS";
 const intialState = {
     products: getDataLS(),
     product: null,
-    isloading: false
+    isloading: false,
+    isDelete: false,
+    deleteId: null
 }
 
 const SubmitReducer = (state = intialState, action) => {
-
-    // eslint-disable-next-line no-unused-vars
     let updatedData = '';
 
     switch (action.type) {
@@ -30,7 +30,7 @@ const SubmitReducer = (state = intialState, action) => {
             // eslint-disable-next-line no-case-declarations
             const singleData = getDataLS().find(product => product.id == action.payload);
 
-            return { ...state, product: singleData || null };
+            return { ...state, product: singleData || null, isloading: false };
 
         case "UpadateProduct":
             updatedData = '';
@@ -53,10 +53,13 @@ const SubmitReducer = (state = intialState, action) => {
 
             localStorage.setItem("products", JSON.stringify(updatedData));
 
-            return { ...state, products: updatedData };
+            return { ...state, products: updatedData, isDelete: false, deleteId: null };
 
         case "LoadProduct":
             return { ...state, isloading: true };
+
+        case "DeleteConform":
+            return { ...state, isDelete: true, deleteId: action.payload };
 
         default:
             return state;

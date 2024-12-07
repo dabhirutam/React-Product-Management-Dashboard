@@ -32,7 +32,12 @@ const AddProduct = () => {
         <Container className="mt-5">
             <Row className="justify-content-center">
                 <Col md={10} xs={12} className="border border-secondary rounded-3 p-4 text-white" style={{ backdropFilter: 'blur(10px)' }}>
-                    <h2 className="text-center mb-5">Camel Edit Profile Form</h2>
+                <div className="d-flex flex-wrap align-items-center mb-5 row-gap-2 text-center text-lg-start">
+                        <h2 className="col-lg-6 col-12">Add Product Data Form</h2>
+                        <Col lg={6} xs={12} className="text-lg-end">
+                            <Button onClick={() => navigate('/')} variant="info" className="text-white fw-bold fs-5"><i className="bi bi-house-fill"></i></Button>
+                        </Col>
+                    </div>
                     <Form onSubmit={handleSubmit}>
                         <Row className="mb-3 row-gap-3">
                             <Col xs={12}>

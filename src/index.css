@@ -34,7 +34,6 @@ body {
   }
 }
 
-
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;
@@ -42,4 +41,13 @@ body {
 }
 ::-webkit-scrollbar-thumb {
   background: #7a7a7a77;
+}
+
+.modal{
+  --bs-modal-bg: #000000e3 !important;
+}
+
+.list-group-item{
+  background-color: transparent !important;
+  border: none !important;
 }

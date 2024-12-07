@@ -27,6 +27,13 @@ export const DeleteAction = (id) => {
     }
 }
 
+export const DeleteConformAction = (id) => {
+    return{
+        type: "DeleteConform",
+        payload: id
+    }
+}
+
 export const LoadAction = () => {
     return{
         type: "LoadProduct",
@@ -49,12 +56,12 @@ export const LoadViewAction = () => {
     }
 }
 
-export const LoadingSubmitAction = (data) => {
-    return async (dispatch) => {
+export const LoadViewSingleAction = (id) => {
+    return async (dispatch) =>{
         dispatch(LoadAction());
 
         setTimeout(() => {
-            dispatch(SubmitAction(data));
+            dispatch(SingleDataAction(id));
         }, 2000);
     }
 }

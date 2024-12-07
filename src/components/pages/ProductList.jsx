@@ -1,21 +1,14 @@
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { DeleteAction, LoadViewAction } from "../../services/actions/SubmitAction";
+import { DeleteConformAction, LoadViewAction } from "../../services/actions/SubmitAction";
 import { useEffect } from "react";
-
 
 const ProductList = () => {
 
     const { products, isloading } = useSelector((state) => state.SubmitReducer);
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
-    const handleNavigae = () => navigate('/add');
-    const handleEdit = (id) => navigate(`/edit/${id}`);
-    const handleDelete = (id) => {
-        dispatch(DeleteAction(id));
-    };
 
     useEffect(() => {
         dispatch(LoadViewAction());
@@ -25,9 +18,11 @@ const ProductList = () => {
         <Container>
             <Row className="py-5 text-center">
                 <Col md={12} className="p-4 rounded-4 border border-secondary bg-dark bg-opacity-10 text-white" style={{ backdropFilter: 'blur(10px)' }}>
-                    <div className="d-flex justify-content-between align-items-center mb-5">
-                        <h2>View product History</h2>
-                        <Button onClick={handleNavigae} variant="info" className="text-white fw-bold fs-5"><i className="bi bi-cart-fill"></i></Button>
+                    <div className="d-flex flex-wrap align-items-center mb-5 row-gap-2 text-center text-md-start">
+                        <h2 className="col-12 col-md-6">View product History</h2>
+                        <Col md={6} xs={12} className="text-md-end">
+                            <Button onClick={() => navigate('/add')} variant="info" className="text-white fw-bold fs-5"><i className="bi bi-cart-fill"></i></Button>
+                        </Col>
                     </div>
                     {
                         isloading ? (
@@ -62,12 +57,16 @@ const ProductList = () => {
                                                         <td>{product.quantity}</td>
                                                         <td>{product.description}</td>
                                                         <td>
-                                                            <Button className="btn btn-primary" onClick={() => handleEdit(product.id)}>
+                                                            <Button className="btn btn-primary" onClick={() => navigate(`/edit/${product.id}`)}>
                                                                 <i className="bi bi-pencil-square"></i>
                                                             </Button>
                                                             &nbsp; || &nbsp;
-                                                            <Button className="btn btn-danger" onClick={() => handleDelete(product.id)}>
+                                                            <Button className="btn btn-danger" onClick={() => dispatch(DeleteConformAction(product.id))}>
                                                                 <i className="bi bi-trash-fill"></i>
+                                                            </Button>
+                                                            &nbsp; || &nbsp;
+                                                            <Button className="btn btn-success" onClick={() => navigate(`/single/${product.id}`)}>
+                                                                <i className="bi bi-eye-fill"></i>
                                                             </Button>
                                                         </td>
                                                     </tr>
