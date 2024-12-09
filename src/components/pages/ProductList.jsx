@@ -19,7 +19,7 @@ const ProductList = () => {
             <Row className="py-5 text-center">
                 <Col md={12} className="p-4 rounded-4 border border-secondary bg-dark bg-opacity-10 text-white" style={{ backdropFilter: 'blur(10px)' }}>
                     <div className="d-flex flex-wrap align-items-center mb-5 row-gap-2 text-center text-md-start">
-                        <h2 className="col-12 col-md-6">View product History</h2>
+                        <h2 className="col-12 col-md-6">View Product History</h2>
                         <Col md={6} xs={12} className="text-md-end">
                             <Button onClick={() => navigate('/add')} variant="info" className="text-white fw-bold fs-5"><i className="bi bi-cart-fill"></i></Button>
                         </Col>
